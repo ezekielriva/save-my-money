@@ -12,7 +12,9 @@ feature "User sign up" do
 
     find_button("Sign up").click
 
-    expect(User.where(email: user.email)).to exist
+    users = User.where(email: user.email)
+    expect(users).to exist
+    expect(users.first.chests).to exist
     expect(page).to have_content("Welcome#index")
   end
 

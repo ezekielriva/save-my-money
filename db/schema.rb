@@ -11,7 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318224810) do
+ActiveRecord::Schema.define(version: 20140321195400) do
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "chests", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "chests", ["user_id"], name: "index_chests_on_user_id"
+
+  create_table "coins", force: true do |t|
+    t.decimal  "value"
+    t.integer  "user_id"
+    t.integer  "chest_id"
+    t.integer  "category_id"
+    t.boolean  "is_recurrent"
+    t.date     "repeat_until"
+    t.integer  "period"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "coins", ["category_id"], name: "index_coins_on_category_id"
+  add_index "coins", ["chest_id"], name: "index_coins_on_chest_id"
+  add_index "coins", ["user_id"], name: "index_coins_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
