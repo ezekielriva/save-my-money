@@ -5,5 +5,7 @@ class CreateChests < ActiveRecord::Migration
       t.belongs_to :user, index: true
       t.timestamps
     end
+
+    add_index(:chests, [:name, :user_id], unique: true)
   end
 end

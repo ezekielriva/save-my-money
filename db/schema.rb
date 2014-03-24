@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140321195400) do
     t.datetime "updated_at"
   end
 
+  add_index "chests", ["name", "user_id"], name: "index_chests_on_name_and_user_id", unique: true
   add_index "chests", ["user_id"], name: "index_chests_on_user_id"
 
   create_table "coins", force: true do |t|

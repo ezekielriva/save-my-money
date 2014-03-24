@@ -1,5 +1,10 @@
 require 'spec_helper'
 
 describe Chest do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user) { create(:user) }
+  
+  describe "Validations" do
+    it { should validate_presence_of :name }
+    it { should validate_uniqueness_of(:name).scoped_to(:user_id) }
+  end
 end

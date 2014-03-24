@@ -3,7 +3,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
 
     resource.chests << Chest.new(name: 'Default Chest')
-    puts resource.chests.inspect
     if resource.save
       yield resource if block_given?
       if resource.active_for_authentication?

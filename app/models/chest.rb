@@ -2,5 +2,6 @@ class Chest < ActiveRecord::Base
   has_many :coins
   belongs_to :user
 
-  validate :name, presence: true
+  validates :name, presence: true
+  validates :name, uniqueness: { scope: :user_id }
 end
