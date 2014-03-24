@@ -20,7 +20,7 @@ feature "Chest creation" do
   scenario "with invalid data" do
     user = create(:user_with_chests, chests_count: 3)
     find_button('Create').click
-    expect(user.chests.count).to eql 3
+    expect(user.chests.count).to eql 4
   end
 
 end

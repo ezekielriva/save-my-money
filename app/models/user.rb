@@ -8,4 +8,12 @@ class User < ActiveRecord::Base
   has_many :coins
 
   validates :chests, presence: true
+
+  before_validation :default_values
+  
+  def default_values
+    if new_record?
+      chests << Chest.new(name: 'Default Chest')
+    end
+  end
 end
