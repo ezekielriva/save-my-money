@@ -34,6 +34,7 @@ group :test do
   gem 'launchy'
   gem 'simplecov',            require: false
   gem "factory_girl_rails"
+  gem "codeclimate-test-reporter", require: nil
 end
 
 group :doc do

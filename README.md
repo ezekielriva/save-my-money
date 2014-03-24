@@ -1,4 +1,4 @@
-Save my money
+Save my money [![Code Climate](https://codeclimate.com/github/ezekielriva/save-my-money.png)](https://codeclimate.com/github/ezekielriva/save-my-money)
 =============
 It is a virtual wallet that manage your finances.
 
