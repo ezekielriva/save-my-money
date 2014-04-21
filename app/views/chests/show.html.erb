@@ -1,6 +1,12 @@
 <%= chest.name %>
 
-<%= link_to 'New Coin', new_chest_coin_path(chest) %>
+<p>
+  Balance: <%= chest.balance %>
+</p>
+
+<p>
+  <%= link_to 'New Coin', new_chest_coin_path(chest) %>
+</p>
 
 <% if chest.coins.any? %>
   <ul>
