@@ -15,6 +15,7 @@ feature "User sign up" do
     users = User.where(email: user.email)
     expect(users).to exist
     expect(users.first.chests.where(name: 'Default Chest')).to exist
+    expect(users.first.categories.count).to eql 5
     expect(page).to have_content("Welcome#index")
   end
 

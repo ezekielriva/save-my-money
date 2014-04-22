@@ -11,10 +11,12 @@ feature "Add positive coins to a chest" do
 
   scenario "Adds a one shot type coin to chest" do
     fill_in 'coin[value]', with: '1000'
+    select user.categories.first.name, from: 'coin[category_id]'
 
     find_button("Create").click
 
     expect(chest.coins.where(value: 1000)).to exist
+    expect(user.categories.first.coins.where(value: 1000)).to exist
     expect(current_path).to eql chest_path(chest)
   end
 

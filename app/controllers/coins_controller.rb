@@ -1,6 +1,7 @@
 class CoinsController < ApplicationController
   before_filter :authenticate_user!
 
+  expose(:categories) { current_user.categories }
   expose(:chests) { current_user.chests }
   expose(:chest)
   expose(:coins) { chest.coins }
@@ -21,6 +22,6 @@ class CoinsController < ApplicationController
   private
 
   def coin_params
-    params.require(:coin).permit(:value)
+    params.require(:coin).permit(:value, :category_id)
   end
 end

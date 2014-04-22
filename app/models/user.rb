@@ -6,14 +6,16 @@ class User < ActiveRecord::Base
 
   has_many :chests
   has_many :coins
+  has_many :categories
 
   validates :chests, presence: true
 
   before_validation :default_values
-  
+
   def default_values
     if new_record?
-      chests << Chest.new(name: 'Default Chest')
+      chests << Chest.build_default_chest
+      categories << Category.build_default_categories
     end
   end
 end

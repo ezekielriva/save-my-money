@@ -1,5 +1,6 @@
 <%= form_for [chest, coin] do |f| %>
   <%= f.number_field :value %>
+  <%= f.select :category_id, transform_for_select(categories, :id, :name) %>
 
   <%= f.submit 'Create' %>
 <% end %>

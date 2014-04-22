@@ -8,4 +8,8 @@ class Chest < ActiveRecord::Base
   def balance
     coins.sum(:value)
   end
+
+  def self.build_default_chest
+    new(name: 'Default Chest')
+  end
 end
