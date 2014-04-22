@@ -1,7 +1,8 @@
 class CoinsController < ApplicationController
   before_filter :authenticate_user!
 
-  expose(:chest) { Chest.find(params[:chest_id]) }
+  expose(:chests) { current_user.chests }
+  expose(:chest)
   expose(:coins) { chest.coins }
   expose(:coin, attributes: :coin_params)
 
@@ -11,7 +12,7 @@ class CoinsController < ApplicationController
   def create
     if coin.save
       flash[:success] = "Coin was successfully added to #{chest.name}."
-      redirect_to chest_coins_path(chest)
+      redirect_to chest
     else
       render :new
     end

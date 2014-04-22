@@ -2,7 +2,7 @@ require "spec_helper"
 
 feature "Add positive coins to a chest" do
   let!(:user) { create(:user) }
-  let!(:chest) { create(:chest) }
+  let!(:chest) { create(:chest, user: user) }
 
   background do
     login_as(user, scope: :user)
@@ -15,7 +15,7 @@ feature "Add positive coins to a chest" do
     find_button("Create").click
 
     expect(chest.coins.where(value: 1000)).to exist
-    expect(current_path).to eql chest_coins_path(chest)
+    expect(current_path).to eql chest_path(chest)
   end
 
 
