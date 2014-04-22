@@ -1,4 +1,4 @@
-class CoinsController < ApplicationController
+class CoinsController < AdminController
   before_filter :authenticate_user!
 
   expose(:categories) { current_user.categories }

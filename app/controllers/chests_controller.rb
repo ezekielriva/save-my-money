@@ -1,5 +1,4 @@
-class ChestsController < ApplicationController
-  before_filter :authenticate_user!
+class ChestsController < AdminController
 
   expose(:chests) { current_user.chests }
   expose(:chest, attributes: :chest_params)

@@ -9,5 +9,5 @@ SaveMyMoney::Application.routes.draw do
     resources :coins
   end
 
-  root 'welcome#index'
+  root 'admin#dashboard'
 end
