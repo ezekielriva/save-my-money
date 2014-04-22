@@ -3,6 +3,7 @@ class ChestsController < ApplicationController
 
   expose(:chests) { current_user.chests }
   expose(:chest, attributes: :chest_params)
+  expose(:balance) { chest.balance }
 
   def index; end
   def new; end
