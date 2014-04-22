@@ -4,7 +4,7 @@ class CoinsController < ApplicationController
   expose(:categories) { current_user.categories }
   expose(:chests) { current_user.chests }
   expose(:chest)
-  expose(:coins) { chest.coins }
+  expose(:coins) { current_user.coins }
   expose(:coin, attributes: :coin_params)
 
   def index; end
@@ -22,6 +22,7 @@ class CoinsController < ApplicationController
   private
 
   def coin_params
-    params.require(:coin).permit(:value, :category_id)
+    params.require(:coin).permit(:value, :category_id).
+      merge(chest_id: params[:chest_id])
   end
 end
