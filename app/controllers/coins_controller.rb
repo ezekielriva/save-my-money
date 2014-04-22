@@ -22,7 +22,7 @@ class CoinsController < ApplicationController
   private
 
   def coin_params
-    params.require(:coin).permit(:value, :category_id).
+    params.require(:coin).permit(:value, :category_id, :created_at).
       merge(chest_id: params[:chest_id])
   end
 end
