@@ -5,6 +5,8 @@ class Coin < ActiveRecord::Base
 
   validates :period, presence: true, if: :is_recurrent
 
+  scope :no_recurrent, -> { where(is_recurrent: false)}
+
   DEFAULT_PERIODS = [
     { name: 'dayly', time: 1 },
     { name: 'weekely', time: 7 },

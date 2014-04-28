@@ -6,7 +6,7 @@ class Chest < ActiveRecord::Base
   validates :name, uniqueness: { scope: :user_id }
 
   def balance
-    coins.sum(:value)
+    coins.no_recurrent.sum(:value)
   end
 
   def self.build_default_chest

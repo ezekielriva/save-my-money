@@ -11,7 +11,7 @@ class CoinsController < AdminController
   def new; end
 
   def create
-    if coin.save
+    if coin.save && create_recurrent
       flash[:success] = "Coin was successfully added to #{chest.name}."
       redirect_to chest
     else
@@ -25,5 +25,11 @@ class CoinsController < AdminController
     params.require(:coin).permit(:value, :category_id, :created_at,
       :is_recurrent, :period).
       merge(chest_id: params[:chest_id])
+  end
+
+  def create_recurrent
+    recurrent = Coin.new(coin_params)
+    recurrent.is_recurrent = false
+    recurrent.save
   end
 end
