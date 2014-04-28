@@ -27,8 +27,8 @@ feature "Add positive coins to a chest" do
 
     find_button("Create").click
 
-    expect(chest.coins.where(value: 1000)).to exist
-    expect(user.categories.first.coins.where(value: 1000)).to exist
+    expect(chest.coins.where(value: 1000, is_recurrent: true)).to exist
+    expect(user.categories.first.coins.where(value: 1000, is_recurrent: true)).to exist
     expect(current_path).to eql chest_path(chest)
   end
 
