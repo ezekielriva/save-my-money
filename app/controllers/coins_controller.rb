@@ -22,7 +22,8 @@ class CoinsController < AdminController
   private
 
   def coin_params
-    params.require(:coin).permit(:value, :category_id, :created_at).
+    params.require(:coin).permit(:value, :category_id, :created_at,
+      :is_recurrent, :period).
       merge(chest_id: params[:chest_id])
   end
 end
