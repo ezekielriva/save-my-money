@@ -1,8 +1,12 @@
 <%= form_for [chest, coin] do |f| %>
+  <%= f.label :value %>
   <%= f.number_field :value %> <br>
+  <%= f.label :category %>
   <%= f.select :category_id, transform_for_select(categories, :id, :name), { include_blank: true } %> <br>
+  <%= f.label :created_at, 'When' %>
   <%= f.date_field :created_at %>
 
 
   <%= f.submit 'Create' %>
+  <%= link_to 'Back', chest_path(chest) %>
 <% end %>

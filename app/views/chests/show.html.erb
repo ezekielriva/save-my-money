@@ -9,9 +9,13 @@
 </p>
 
 <% if chest.coins.any? %>
-  <ul>
-    <% chest.coins.each do |coin| %>
-      <li><%= coin.value %></li>
-    <% end %>
-  </ul>
+  <table>
+    <tbody>
+      <% chest.coins.each do |coin| %>
+        <tr>
+          <td><%= coin.value %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% end %>
