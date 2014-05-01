@@ -14,6 +14,7 @@ describe "recurrent_coins:update_chests" do
     @recurrent = create :recurrent_coin, chest: @chest
     subject.invoke
     expect(@chest.coins.count).to eql 7
+    expect(@chest.coins.where(parent_id: @recurrent.id)).to exist
     @recurrent.reload
     expect(@recurrent.updated_at.to_date).to eql Date.today
   end

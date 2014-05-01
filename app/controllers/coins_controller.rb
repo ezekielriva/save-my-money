@@ -28,8 +28,12 @@ class CoinsController < AdminController
   end
 
   def create_recurrent
-    recurrent = Coin.new(coin_params)
-    recurrent.is_recurrent = false
-    recurrent.save
+    if coin.is_recurrent
+      recurrent = Coin.new(coin_params)
+      recurrent.is_recurrent = false
+      recurrent.parent = coin
+      return recurrent.save
+    end
+    true
   end
 end

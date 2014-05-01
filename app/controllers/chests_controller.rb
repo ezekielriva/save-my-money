@@ -2,6 +2,7 @@ class ChestsController < AdminController
 
   expose(:chests) { current_user.chests }
   expose(:chest, attributes: :chest_params)
+  expose(:coins) { chest.coins.no_recurrent }
   expose(:balance) { chest.balance }
 
   def index; end

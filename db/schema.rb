@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140422003201) do
+ActiveRecord::Schema.define(version: 20140501180438) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -42,10 +42,12 @@ ActiveRecord::Schema.define(version: 20140422003201) do
     t.integer  "period"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_id"
   end
 
   add_index "coins", ["category_id"], name: "index_coins_on_category_id"
   add_index "coins", ["chest_id"], name: "index_coins_on_chest_id"
+  add_index "coins", ["parent_id"], name: "index_coins_on_parent_id"
   add_index "coins", ["user_id"], name: "index_coins_on_user_id"
 
   create_table "users", force: true do |t|

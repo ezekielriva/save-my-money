@@ -1,19 +1,26 @@
 <%= chest.name %>
 
 <p>
-  Balance: <%= balance %>
+  Balance: $<%= balance %>
 </p>
 
 <p>
   <%= link_to 'New Coin', new_chest_coin_path(chest) %>
 </p>
 
-<% if chest.coins.any? %>
+<% if coins.any? %>
   <table>
+    <thead>
+      <tr>
+        <td>Value</td>
+        <td>From recurrent</td>
+      </tr>
+    </thead>
     <tbody>
-      <% chest.coins.each do |coin| %>
+      <% coins.each do |coin| %>
         <tr>
           <td><%= coin.value %></td>
+          <td><%= coin.from_recurrent %></td>
         </tr>
       <% end %>
     </tbody>

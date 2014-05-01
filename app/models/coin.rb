@@ -2,10 +2,12 @@ class Coin < ActiveRecord::Base
   belongs_to :category
   belongs_to :chest
   belongs_to :user
+  belongs_to :parent, class_name: 'Coin'
 
   validates :period, presence: true, if: :is_recurrent
 
-  scope :no_recurrent, -> { where(is_recurrent: false)}
+  scope :no_recurrent, -> { where(is_recurrent: false) }
+  scope :recurrent, -> { where(is_recurrent: true) }
 
   DEFAULT_PERIODS = [
     { name: 'dayly', time: 1 },
@@ -16,4 +18,8 @@ class Coin < ActiveRecord::Base
     { name: 'quarterly', time: 120 },
     { name: 'yearly', time: 360 }
   ]
+
+  def from_recurrent
+    !parent.blank?
+  end
 end
