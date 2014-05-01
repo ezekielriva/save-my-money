@@ -4,6 +4,7 @@ class Coin < ActiveRecord::Base
   belongs_to :user
   belongs_to :parent, class_name: 'Coin'
 
+  validates :value, presence: true
   validates :period, presence: true, if: :is_recurrent
 
   scope :no_recurrent, -> { where(is_recurrent: false) }

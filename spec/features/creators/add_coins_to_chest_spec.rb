@@ -32,5 +32,10 @@ feature "Add positive coins to a chest" do
     expect(current_path).to eql chest_path(chest)
   end
 
+  scenario "Adds an invalid coin" do
+    find_button('Create').click
+    expect(page).to have_content "Value can't be blank"
+  end
+
 
 end
