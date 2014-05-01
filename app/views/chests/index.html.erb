@@ -1,13 +1,16 @@
-<%= link_to 'New', new_chest_path %>
-<% if chests.any? %>
-  <table>
-    <tbody>
-      <% chests.each do |chest| %>
-        <tr>
-          <td><%= link_to chest.name, chest %></td>
-          <td><%= chest.balance %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+<div class="small-12 column">
+  <%= link_to 'New Chest', new_chest_path, class: 'button' %>
+  <% if chests.any? %>
+    <table class="small-12 column">
+      <tbody>
+        <% chests.each do |chest| %>
+          <tr>
+            <td><%= link_to chest.name, chest %></td>
+            <td>$ <%= chest.balance %></td>
+            <td><%= link_to 'Edit', edit_chest_path(chest) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

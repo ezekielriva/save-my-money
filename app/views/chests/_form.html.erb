@@ -1,6 +1,8 @@
-<%= form_for chest do |f| %>
+<%= form_for chest, html: { class: 'small-12 column'} do |f| %>
+  <%= render "shared/error_messages", m: chest %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
-  <%= f.submit 'Create' %>
+  <%= f.submit (is_new)? 'Create': 'Edit', class: 'button success' %>
+  <%= link_to 'Back', chests_path %>
 <% end %>

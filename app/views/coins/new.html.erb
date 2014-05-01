@@ -1,1 +1,4 @@
-<%= render 'form' %>
+<div class="small-12 column">
+  <h1>Add coin <% chest ? 'to chest' : '' %></h1>
+</div>
+<%= render 'form', is_new: true %>

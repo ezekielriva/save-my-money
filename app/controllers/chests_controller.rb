@@ -7,6 +7,7 @@ class ChestsController < AdminController
 
   def index; end
   def new; end
+  def edit; end
 
   def create
     if chest.save
@@ -14,6 +15,15 @@ class ChestsController < AdminController
       redirect_to chest
     else
       render :new
+    end
+  end
+
+  def update
+    if chest.save
+      flash[:success] = 'Chest was successfully updated.'
+      redirect_to chest
+    else
+      render :edit
     end
   end
 

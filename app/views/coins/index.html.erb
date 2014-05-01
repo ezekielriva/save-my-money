@@ -1,1 +1,17 @@
-index.html.erb
+<p>
+  <%= link_to 'New Coin', new_coin_path, class: 'button' %>
+</p>
+
+<% if coins.any? %>
+  <table class="small-12 column">
+    <tbody>
+      <% coins.each do |coin| %>
+        <tr>
+          <td><%= coin.value %></td>
+          <td><%= coin.chest.name %></td>
+          <td><%= link_to 'Edit', edit_coin_path(coin) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

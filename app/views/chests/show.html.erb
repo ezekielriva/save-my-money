@@ -1,26 +1,20 @@
-<%= chest.name %>
+<h1><%= chest.name %></h1>
+
+<h4>
+  Balance: <span class="<%= coin_color(balance) %> label">$ <%= balance %></span>
+</h4>
 
 <p>
-  Balance: $<%= balance %>
-</p>
-
-<p>
-  <%= link_to 'New Coin', new_chest_coin_path(chest) %>
+  <%= link_to 'New Coin', new_chest_coin_path(chest), class: 'button' %>
 </p>
 
 <% if coins.any? %>
-  <table>
-    <thead>
-      <tr>
-        <td>Value</td>
-        <td>From recurrent</td>
-      </tr>
-    </thead>
+  <table class="small-12 column">
     <tbody>
       <% coins.each do |coin| %>
         <tr>
           <td><%= coin.value %></td>
-          <td><%= coin.from_recurrent %></td>
+          <td><%= link_to 'Edit', edit_chest_coin_path(chest, coin) %></td>
         </tr>
       <% end %>
     </tbody>

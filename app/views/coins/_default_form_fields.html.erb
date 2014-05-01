@@ -1,0 +1,12 @@
+<%= render "shared/error_messages", m: coin %>
+<%= f.label :value %>
+<%= f.number_field :value %>
+<%= f.label :category %>
+<%= f.select :category_id, transform_for_select(categories, :id, :name), { include_blank: true } %>
+<%= f.label :created_at, 'When' %>
+<%= f.date_field :created_at %>
+<%= f.label :is_recurrent do %>
+  <%= f.check_box :is_recurrent %>
+  Recurrent
+<% end %>
+<%= f.select :period, transform_for_select(Coin::DEFAULT_PERIODS, :time, :time) %>

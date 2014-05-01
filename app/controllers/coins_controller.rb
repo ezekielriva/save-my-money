@@ -9,6 +9,7 @@ class CoinsController < AdminController
 
   def index; end
   def new; end
+  def edit; end
 
   def create
     if coin.save && create_recurrent
@@ -19,12 +20,22 @@ class CoinsController < AdminController
     end
   end
 
+  def update
+    if coin.save && create_recurrent
+      flash[:success] = "Coin was successfully updated."
+      redirect_to chest
+    else
+      render :edit
+    end
+  end
+
   private
 
   def coin_params
-    params.require(:coin).permit(:value, :category_id, :created_at,
-      :is_recurrent, :period).
-      merge(chest_id: params[:chest_id])
+    coin_p = params.require(:coin).permit(:value, :category_id, :created_at,
+        :is_recurrent, :period, :chest_id)
+    chest_p = { chest_id: params[:chest_id] }
+    chest_p.merge(coin_p)
   end
 
   def create_recurrent
