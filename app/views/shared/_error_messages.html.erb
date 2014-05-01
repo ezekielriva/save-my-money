@@ -1,6 +1,6 @@
 <% if m.errors.any? %>
-  <div data-alert class="alert-box alert radius">
-    <ul>
+  <div data-alert class="alert-box alert">
+    <ul class="side-nav">
     <% m.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>

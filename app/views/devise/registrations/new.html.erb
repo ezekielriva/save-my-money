@@ -1,18 +1,19 @@
-<h2>Sign up</h2>
+<div class="small-12 column">
+  <h2>Sign up</h2>
+</div>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'small-12 column' }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <div><%= f.email_field :email, placeholder: 'Email' %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div><%= f.password_field :password, placeholder: 'Password' %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div><%= f.password_field :password_confirmation, placeholder: 'Password Confirmation' %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div><%= f.submit "Sign up", class: 'button small-12' %></div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="small-12 column">
+  <%= render "devise/shared/links" %>
+</div>

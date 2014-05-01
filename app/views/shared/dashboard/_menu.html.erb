@@ -15,15 +15,12 @@
         <%= link_to 'My Chests', chests_path %>
       </li>
       <li class="<%= active_menu(controller_name, 'coins') %>">
-        <%= link_to 'Coins', coins_path %>
+        <%= link_to 'Coin flow', coins_path %>
       </li>
     </ul>
 
     <!-- Right Nav Section -->
     <ul class="right">
-      <li class="active">
-        <a href="#">Right Button Active</a>
-      </li>
       <li class="has-dropdown">
         <a href="#">Right Button Dropdown</a>
         <ul class="dropdown">
@@ -31,6 +28,9 @@
             <a href="#">First link in dropdown</a>
           </li>
         </ul>
+      </li>
+      <li>
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
       </li>
     </ul>
   </section>

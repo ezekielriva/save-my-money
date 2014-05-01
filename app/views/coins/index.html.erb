@@ -1,17 +1,27 @@
-<p>
-  <%= link_to 'New Coin', new_coin_path, class: 'button' %>
-</p>
+<div class="small-12 column text-center">
+  <h2>Coin flow</h2>
+</div>
 
-<% if coins.any? %>
-  <table class="small-12 column">
-    <tbody>
-      <% coins.each do |coin| %>
-        <tr>
-          <td><%= coin.value %></td>
-          <td><%= coin.chest.name %></td>
-          <td><%= link_to 'Edit', edit_coin_path(coin) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+<div class="small-12 column">
+  <%= link_to 'New Coin', new_coin_path, class: 'button small-12' %>
+</div>
+
+<%= render 'form_filter_month', filter_date: filter_date %>
+
+<div class="small-12 column">
+  <% if coins.any? %>
+    <table class="small-12 balance-table">
+      <tbody>
+        <% coins.each do |coin| %>
+          <tr class="row-<%= coin_color(coin.value) %>">
+            <td><%= number_to_currency coin.value %></td>
+            <td><%= coin.chest.name %></td>
+            <td><%= link_to 'Edit', edit_coin_path(coin) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+  <div class="alert-box info">No coins added yet.</div>
+  <% end %>
+</div>

@@ -1,10 +1,9 @@
-<% if chest.id %>
-  <%= form_for [chest, coin], html: { class: 'small-12 column'} do |f| %>
+<% if coin.chest %>
+  <%= form_for [coin.chest, coin], html: { class: 'small-12 column'} do |f| %>
     <%= render "shared/error_messages", m: coin %>
     <%= render "default_form_fields", coin: coin, f: f %>
 
-    <%= f.submit (is_new)? 'Create': 'Edit', class: 'button success' %>
-    <%= link_to 'Back', chest_path(chest) %>
+    <%= f.submit (is_new)? 'Create': 'Edit', class: 'button success text-center small-12' %>
   <% end %>
 <% else %>
   <%= form_for coin, html: { class: 'small-12 column'} do |f| %>
@@ -13,8 +12,11 @@
     <%= f.select :chest_id, transform_for_select(chests, :id, :name), { include_blank: true } %>
     <%= render "default_form_fields", coin: coin, f: f %>
 
-    <%= f.submit (is_new)? 'Create': 'Edit', class: 'button success' %>
-    <%= link_to 'Back', coins_path %>
+    <%= f.submit (is_new)? 'Create': 'Edit', class: 'button success text-center small-12' %>
   <% end %>
 <% end %>
+
+<div class="small-12 column text-center">
+  <%= link_to 'Back', coins_path %>
+</div>
 

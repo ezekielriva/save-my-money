@@ -9,6 +9,7 @@ class Coin < ActiveRecord::Base
 
   scope :no_recurrent, -> { where(is_recurrent: false) }
   scope :recurrent, -> { where(is_recurrent: true) }
+  scope :by_date, ->(filter) { where(created_at: filter.beginning_of_month..filter.end_of_month) }
 
   DEFAULT_PERIODS = [
     { name: 'dayly', time: 1 },

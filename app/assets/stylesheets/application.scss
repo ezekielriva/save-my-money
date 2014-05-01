@@ -3,3 +3,13 @@
  */
 
 @import "foundation_and_overrides";
+
+.balance-label-class {
+  @include label();
+  font-size: $h4-font-size;
+}
+
+.balance-table {
+  .row-success { background: #DFF0D8; }
+  .row-alert { background: #F2DEDE; }
+}

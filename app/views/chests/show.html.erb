@@ -1,22 +1,29 @@
-<h1><%= chest.name %></h1>
+<div class="small-12 column text-center">
+  <h2><%= chest.name %></h2>
+</div>
 
-<h4>
-  Balance: <span class="<%= coin_color(balance) %> label">$ <%= balance %></span>
-</h4>
+<div class="small-12 column">
+  <h2 class="<%= coin_color(balance) %> label balance-label-class small-12">
+    <%= number_to_currency balance %>
+  </h2>
+</div>
+<div class="small-12 column">
+  <br>
+  <%= link_to 'New Coin', new_chest_coin_path(chest), class: 'button small-12' %>
+</div>
 
-<p>
-  <%= link_to 'New Coin', new_chest_coin_path(chest), class: 'button' %>
-</p>
-
-<% if coins.any? %>
-  <table class="small-12 column">
-    <tbody>
-      <% coins.each do |coin| %>
-        <tr>
-          <td><%= coin.value %></td>
-          <td><%= link_to 'Edit', edit_chest_coin_path(chest, coin) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+<div class="small-12 column">
+  <% if coins.any? %>
+    <table class="small-12 balance-table">
+      <tbody>
+        <% coins.each do |coin| %>
+          <tr class="row-<%= coin_color(coin.value) %>">
+            <td><%= number_to_currency coin.value %></td>
+            <td><%= coin.category.name %></td>
+            <td><%= link_to 'Edit', edit_chest_coin_path(chest, coin) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

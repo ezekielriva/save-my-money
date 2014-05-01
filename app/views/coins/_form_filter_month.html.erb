@@ -1,0 +1,5 @@
+<%= form_tag coins_path, method: :get, class: 'small-12 column' do %>
+  <%= select_month filter_date.month, { field_name: 'month' }, class: 'small-4' %>
+  <%= select_year filter_date.year, { field_name: 'year' }, class: 'small-4' %>
+  <%= submit_tag 'Filter', class: 'button tiny small-3' %>
+<% end %>
