@@ -1,9 +1,13 @@
+<%= link_to 'New', new_chest_path %>
 <% if chests.any? %>
-  <ul>
-    <% chests.each do |chest| %>
-      <li>
-        <%= link_to chest.name, chest %>
-      </li>
-    <% end %>
-  </ul>
+  <table>
+    <tbody>
+      <% chests.each do |chest| %>
+        <tr>
+          <td><%= link_to chest.name, chest %></td>
+          <td><%= chest.balance %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% end %>
