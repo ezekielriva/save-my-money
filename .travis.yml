@@ -1,0 +1,17 @@
+language: ruby
+rvm:
+  - 2.1.0
+branches:
+  only:
+  - master
+deploy:
+  provider: heroku
+  api_key:
+    secure: VC2DrHIN1Pyuk9Y10gYRWgD18NTypwOQEzFDs9ySI0MIUfKUq+/QvZN0wYX1MsD92Mai3MO2hKelfkyg9VRvybGd3GRHiaalF232aJ3/merNq53C/gpSbY35dr9pxoSLgAEGBioF8cSRDsbLf7adVXC+LQwwIy50GRYA8qQKGzQ=
+  app: save-my-money
+  on:
+    branch: master
+    repo: ezekielriva/save-my-money
+  run:
+    - "rake db:migrate"
+    - "rake cleanup"
