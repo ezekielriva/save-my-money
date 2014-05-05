@@ -17,6 +17,10 @@ gem 'figaro'
 gem 'devise'
 gem 'foundation-rails'
 
+group :production do
+  gem 'pg'
+end
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', github: 'rspec/rspec-rails',
