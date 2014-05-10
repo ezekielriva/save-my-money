@@ -21,6 +21,8 @@ class Coin < ActiveRecord::Base
     { name: 'yearly', time: 360 }
   ]
 
+  delegate :name, to: :category, prefix: true
+
   def from_recurrent
     !parent.blank?
   end

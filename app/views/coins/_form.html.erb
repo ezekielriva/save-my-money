@@ -1,5 +1,5 @@
-<% if coin.chest %>
-  <%= form_for [coin.chest, coin], html: { class: 'small-12 column'} do |f| %>
+<% unless chest.new_record? %>
+  <%= form_for [chest, coin], html: { class: 'small-12 column'} do |f| %>
     <%= render "shared/error_messages", m: coin %>
     <%= render "default_form_fields", coin: coin, f: f %>
 

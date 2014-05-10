@@ -19,7 +19,7 @@
         <% coins.each do |coin| %>
           <tr class="row-<%= coin_color(coin.value) %>">
             <td><%= number_to_currency coin.value %></td>
-            <td><%= coin.category.name %></td>
+            <td><%= coin.category_name %></td>
             <td><%= link_to 'Edit', edit_chest_coin_path(chest, coin) %></td>
           </tr>
         <% end %>

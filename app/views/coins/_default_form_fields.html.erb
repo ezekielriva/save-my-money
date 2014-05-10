@@ -1,6 +1,6 @@
 <%= render "shared/error_messages", m: coin %>
 <%= f.number_field :value, placeholder: 'Value' %>
-<%= f.label :category %> <br>
+<%= f.label :category_id %> <br>
 <%= f.select :category_id, transform_for_select(categories, :id, :name), include_blank: true %>
 <%= f.date_field :created_at, placeholder: 'When? dd/mm/yyyy' %>
 <%= f.label :is_recurrent do %>

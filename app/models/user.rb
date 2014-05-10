@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   before_validation :default_values
 
   def default_values
-    if new_record?
+    if self.new_record?
       chests << Chest.build_default_chest
       categories << Category.build_default_categories
     end

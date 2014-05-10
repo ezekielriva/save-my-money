@@ -7,7 +7,7 @@ SaveMyMoney::Application.routes.draw do
 
   resources :coins
   resources :chests do
-    resources :coins
+    resources :coins, module: 'chests'
   end
 
   root 'admin#dashboard'

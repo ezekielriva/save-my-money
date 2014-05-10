@@ -4,6 +4,7 @@ FactoryGirl.define do
     is_recurrent false
     chest
     category
+    user
 
     factory :negative_coins do
       value     -1000
