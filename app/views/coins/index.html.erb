@@ -9,10 +9,10 @@
 <%= render 'form_filter_month', filter_date: filter_date %>
 
 <div class="small-12 column">
-  <% if coins.any? %>
+  <% if filtered_coins.any? %>
     <table class="small-12 balance-table">
       <tbody>
-        <% coins.each do |coin| %>
+        <% filtered_coins.each do |coin| %>
           <tr class="row-<%= coin_color(coin.value) %>">
             <td><%= number_to_currency coin.value %></td>
             <td><%= coin.chest.name %></td>

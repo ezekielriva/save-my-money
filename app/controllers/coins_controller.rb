@@ -3,8 +3,11 @@ class CoinsController < AdminController
 
   expose(:categories) { current_user.categories }
   expose(:filter_date) { date_params }
-  expose(:coins) { current_user.coins.by_date(filter_date) }
+  expose(:coins) { current_user.coins }
   expose(:coin, attributes: :coin_params)
+  expose(:chests) { current_user.chests }
+  expose(:chest) { coin.chest }
+  expose(:filtered_coins) { current_user.coins.by_date(date_params) }
 
   def index; end
   def new; end

@@ -1,4 +1,4 @@
 <div class="small-12 column text-center">
-  <h2>Add Coin <% chest ? "to #{chest.name}" : '' %></h2>
+  <h2>Add Coin <%= chest ? "to #{chest.name}" : '' %></h2>
 </div>
 <%= render 'form', is_new: true %>

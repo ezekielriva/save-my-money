@@ -1,6 +1,7 @@
 class CategoriesController < AdminController
   expose(:categories) { current_user.categories }
   expose(:category, attributes: :category_params)
+  expose(:coins) { category.coins }
 
   def index; end
   def new; end
