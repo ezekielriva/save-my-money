@@ -5,6 +5,7 @@ SaveMyMoney::Application.routes.draw do
     get "signup", to: "devise/registrations#new"
   end
 
+  resources :categories
   resources :coins
   resources :chests do
     resources :coins, module: 'chests'

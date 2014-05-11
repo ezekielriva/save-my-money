@@ -2,6 +2,8 @@ class Category < ActiveRecord::Base
   has_many :coins
   belongs_to :user
 
+  validates :name, presence: true
+
   DEFAULT_CATEGORIES = [
     {name: 'School'},
     {name: 'University'},
